@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Linea D Parrucchieri — Parrucchiere a Parma PR</title>
+<meta name="description" content="Linea D Parrucchieri: parrucchiere a Parma PR. Taglio, colore, piega e trattamenti. Prenota il tuo appuntamento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nero:#1a1a1a;
+  --scuro:#2a2520;
+  --oro:#c9a96e;
+  --oro2:#e8c98e;
+  --crema:#faf8f4;
+  --crema2:#f2ede6;
+  --testo:#3a3530;
+  --muted:#9a9590;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--testo);background:var(--crema);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* ─── CURSOR ─── */
+*{cursor:none}
+.cursor{width:7px;height:7px;background:var(--oro);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:transform .1s}
+.cursor-ring{width:30px;height:30px;border:1px solid var(--oro);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform .06s}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.scrolled{background:rgba(26,26,26,.97);backdrop-filter:blur(14px);padding:1rem 3rem;box-shadow:0 1px 0 rgba(201,169,110,.15)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:#fff;letter-spacing:.08em}
+.nav-links{display:flex;gap:2.2rem;align-items:center}
+.nav-links a{color:rgba(255,255,255,.65);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--oro2)}
+.nav-cta{background:var(--oro);color:var(--nero)!important;padding:.5rem 1.3rem;border-radius:2px;font-weight:600}
+@media(max-width:768px){.nav-links{display:none}nav,nav.scrolled{padding:1.1rem 1.4rem}}
+
+/* ─── HERO ─── */
+.hero{
+  height:100vh;min-height:600px;position:relative;overflow:hidden;
+  background-color:var(--nero);
+  background-image:url('https://lh3.googleusercontent.com/place-photos/AJRVUZM2EGZWJjLn37qtZD4Zw0CRBxazFu3jF1zFNNS-wrEMoYEe9oQw13HAfHcwYR425a5RLp9HyiEO7Mpe2ZJKDn1HGxHfYhSdFjZxERTalblSr1E_3O_GItzBNblV8HIS_gF4Sd3WYe8q5Wjbfw=s4800-w900');
+  background-size:cover;background-position:center top;
+}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(20,18,15,.82) 0%,rgba(0,0,0,.2) 65%)}
+.hero-text{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 7vw;padding-top:80px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.8rem;color:var(--oro);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:1.4rem;opacity:0;animation:fadeUp .7s .2s forwards}
+.hero-eyebrow::after{content:'';height:1px;width:36px;background:var(--oro)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,8vw,6.8rem);font-weight:300;color:#fff;line-height:.98;letter-spacing:.01em;opacity:0;animation:fadeUp .7s .35s forwards}
+.hero h1 em{font-style:italic;color:var(--oro2)}
+.hero-sub{font-size:.88rem;color:rgba(255,255,255,.6);margin-top:1.4rem;line-height:1.8;max-width:380px;opacity:0;animation:fadeUp .7s .5s forwards}
+.hero-actions{display:flex;gap:1rem;margin-top:2.4rem;opacity:0;animation:fadeUp .7s .65s forwards;flex-wrap:wrap}
+.btn-oro{display:inline-block;background:var(--oro);color:var(--nero);padding:.82rem 2rem;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border-radius:2px;transition:background .25s,transform .2s}
+.btn-oro:hover{background:var(--oro2);transform:translateY(-2px)}
+.btn-ghost{display:inline-block;border:1px solid rgba(255,255,255,.35);color:#fff;padding:.82rem 2rem;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all .25s}
+.btn-ghost:hover{border-color:var(--oro);color:var(--oro)}
+.hero-badge{position:absolute;bottom:3rem;right:3rem;background:rgba(255,255,255,.07);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);padding:1.2rem 1.5rem;border-radius:8px;color:#fff;text-align:center}
+.hero-badge .stars{color:#f5c842;font-size:1rem;letter-spacing:.04em}
+.hero-badge .num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;display:block;line-height:1}
+.hero-badge .lbl{font-size:.62rem;letter-spacing:.1em;opacity:.55;text-transform:uppercase;margin-top:.2rem;display:block}
+@media(max-width:600px){.hero-badge{display:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.reveal-l{opacity:0;transform:translateX(-28px);transition:opacity .75s ease,transform .75s ease}
+.reveal-l.on{opacity:1;transform:translateX(0)}
+.reveal-r{opacity:0;transform:translateX(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal-r.on{opacity:1;transform:translateX(0)}
+
+/* ─── SECTION ─── */
+.sec-label{display:inline-flex;align-items:center;gap:.7rem;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--oro);margin-bottom:.8rem}
+.sec-label::before{content:'';width:20px;height:1px;background:var(--oro)}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:300;color:var(--nero);line-height:1.05}
+h2 em{font-style:italic;color:var(--oro)}
+
+/* ─── SERVIZI ─── */
+.servizi{background:#fff;padding:6rem 4vw;border-top:1px solid rgba(0,0,0,.06)}
+.servizi-header{text-align:center;max-width:520px;margin:0 auto 3.5rem}
+.servizi-header p{color:var(--muted);margin-top:.8rem;font-size:.9rem;line-height:1.75}
+.servizi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.serv-card{background:var(--crema);border:1px solid var(--crema2);border-radius:8px;padding:2rem 1.6rem;transition:border-color .25s,transform .25s;text-align:center}
+.serv-card:hover{border-color:var(--oro);transform:translateY(-4px)}
+.serv-icon{font-size:1.6rem;margin-bottom:.9rem;display:block}
+.serv-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--nero);margin-bottom:.4rem}
+.serv-card p{font-size:.8rem;color:var(--muted);line-height:1.65}
+
+/* ─── IL SALONE ─── */
+.salone{padding:6rem 4vw;background:var(--crema)}
+.salone-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.salone-img{
+  height:520px;border-radius:8px;overflow:hidden;
+  background-image:url('https://lh3.googleusercontent.com/place-photos/AJRVUZMk3sTTv6PTSYHPq1JFgH2D7roj6u_b85g2LX_nXM4K0W3RDKxuezs66g67sx4mQysdFSXyxu-iDa1qsj0D4WBCVQwmqsXgj9rOn78Eflur_yhjSiu3mFqZ-hlhg5No-nLZPFFtpORb7z2YHQ=s4800-w900');
+  background-size:cover;background-position:center;
+  position:relative;
+}
+.salone-img::before{
+  content:'';position:absolute;bottom:-1.5rem;right:-1.5rem;
+  width:60%;height:60%;border:2px solid var(--oro);border-radius:8px;z-index:-1;
+}
+.salone-content{}
+.salone-content p{color:var(--muted);margin-top:1rem;font-size:.92rem;line-height:1.85;margin-bottom:1.5rem}
+.salone-numeri{display:flex;gap:2.5rem;margin-top:2rem}
+.salone-num .val{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--oro);display:block;line-height:1}
+.salone-num .lbl{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;display:block}
+@media(max-width:768px){.salone-inner{grid-template-columns:1fr}.salone-img{height:280px}.salone-img::before{display:none}}
+
+/* ─── GALLERY ─── */
+.gallery{padding:6rem 4vw;background:#fff}
+.gallery-header{text-align:center;max-width:480px;margin:0 auto 3rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:260px 260px;gap:10px;max-width:1100px;margin:0 auto}
+.g-item{overflow:hidden;border-radius:6px;background:var(--crema2)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.g-item:hover img{transform:scale(1.07)}
+.g-big{grid-column:span 2}
+@media(max-width:600px){.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.g-big{grid-column:span 2}}
+
+/* ─── RECENSIONI ─── */
+.recensioni{padding:5rem 4vw;background:var(--nero)}
+.rec-inner{max-width:860px;margin:0 auto;text-align:center}
+.rec-inner .sec-label{color:var(--oro);justify-content:center}
+.rec-inner h2{color:#fff}
+.stars-big{font-size:2rem;color:#f5c842;letter-spacing:.08rem;margin-top:1.5rem}
+.rec-num{font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:#fff;line-height:1;display:block;font-weight:300}
+.rec-sub{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+
+/* ─── CONTATTI ─── */
+.contatti{padding:6rem 4vw;background:var(--crema)}
+.contatti-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contatti-info p{color:var(--muted);margin-top:.8rem;font-size:.9rem;line-height:1.8;margin-bottom:2rem}
+.info-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.4rem}
+.info-icon{width:36px;height:36px;border-radius:50%;background:var(--crema2);border:1px solid rgba(201,169,110,.3);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.info-item h4{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--oro);margin-bottom:.2rem}
+.info-item p{font-size:.88rem;color:var(--testo)}
+.btn-tel{display:inline-flex;align-items:center;gap:.6rem;background:var(--nero);color:#fff;padding:1rem 2rem;border-radius:2px;font-weight:600;font-size:.85rem;letter-spacing:.06em;margin-top:1.5rem;transition:background .2s}
+.btn-tel:hover{background:var(--scuro)}
+.btn-wa{display:inline-flex;align-items:center;gap:.6rem;background:#25d366;color:#fff;padding:1rem 2rem;border-radius:2px;font-weight:600;font-size:.85rem;letter-spacing:.06em;margin-top:.8rem;margin-left:.6rem;transition:background .2s}
+.btn-wa:hover{background:#1ebe5b}
+.mappa{border-radius:8px;overflow:hidden;height:380px;border:1px solid var(--crema2)}
+.mappa iframe{width:100%;height:100%;border:none}
+@media(max-width:768px){.contatti-inner{grid-template-columns:1fr}.mappa{height:240px}.btn-wa{margin-left:0}}
+
+/* ─── FOOTER ─── */
+footer{background:var(--nero);padding:2.5rem 4vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:rgba(255,255,255,.35);letter-spacing:.08em}
+footer p{font-size:.74rem;color:rgba(255,255,255,.22);letter-spacing:.05em}
+
+/* ─── FLOAT WA ─── */
+.wa-float{position:fixed;bottom:1.8rem;right:1.8rem;z-index:200;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:26px;height:26px;fill:#fff}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Linea D Parrucchieri</div>
+  <div class="nav-links">
+    <a href="#servizi">Servizi</a>
+    <a href="#salone">Il salone</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contatti" class="nav-cta">Prenota</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <div class="hero-eyebrow">Parrucchiere — Parma PR</div>
+    <h1>Il tuo salone<br>di <em>fiducia</em><br>a Parma PR</h1>
+    <p class="hero-sub">Linea D Parrucchieri è un salone a Parma PR con 61 recensioni su Google. Taglio, colore, piega e trattamenti. Su appuntamento.</p>
+    <div class="hero-actions">
+      <a class="btn-oro" href="tel:0521 966099">📞 Prenota ora</a>
+      <a class="btn-ghost" href="#servizi">Vedi i servizi</a>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <div class="stars">★★★★★</div>
+    <span class="num">4.9</span>
+    <span class="lbl">61 recensioni</span>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="servizi" id="servizi">
+  <div class="servizi-header reveal">
+    <div class="sec-label">Cosa offriamo</div>
+    <h2>I nostri <em>servizi</em></h2>
+    <p>Dalla piega al colore, dal taglio ai trattamenti: tutto in un'unica esperienza.</p>
+  </div>
+  <div class="servizi-grid">
+    <div class="serv-card reveal">
+  <span class="serv-icon">✂️</span>
+  <h3>Taglio</h3>
+  <p>Taglio personalizzato in base alla forma del viso e alle tue esigenze. Dalla frangia alle scalature.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">🎨</span>
+  <h3>Colore</h3>
+  <p>Tinte, meches, balayage e shatush con prodotti professionali che rispettano il capello.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">💨</span>
+  <h3>Piega</h3>
+  <p>Piega liscia, mossa o ricci definiti. Finish impeccabile con prodotti styling di qualità.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">✨</span>
+  <h3>Trattamenti</h3>
+  <p>Trattamenti rigeneranti, keratina, botox capillare e maschere nutrienti per capelli sani.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">👰</span>
+  <h3>Acconciature</h3>
+  <p>Acconciature per cerimonie, matrimoni e occasioni speciali. Prenota in anticipo.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">🌿</span>
+  <h3>Consulenza</h3>
+  <p>Consulenza personalizzata per trovare il colore e il taglio più adatti a te.</p>
+</div>
+
+  </div>
+</section>
+
+<!-- IL SALONE -->
+<section class="salone" id="salone">
+  <div class="salone-inner">
+    <div class="salone-img reveal-l"></div>
+    <div class="salone-content reveal-r">
+      <div class="sec-label">Chi siamo</div>
+      <h2>Un salone <em>curato</em><br>nei dettagli</h2>
+      <p>Da Linea D Parrucchieri trovi un ambiente accogliente e professionale. Dalla piega quotidiana al colore più sofisticato, mettiamo la cura dei tuoi capelli al centro di tutto. Con 61 recensioni positive su Google, i clienti parlano per noi.</p>
+      <a class="btn-oro" href="tel:0521 966099" style="display:inline-block">📞 Chiama ora</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header reveal">
+    <div class="sec-label">Il nostro lavoro</div>
+    <h2>Galleria <em>foto</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item g-big"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZM2EGZWJjLn37qtZD4Zw0CRBxazFu3jF1zFNNS-wrEMoYEe9oQw13HAfHcwYR425a5RLp9HyiEO7Mpe2ZJKDn1HGxHfYhSdFjZxERTalblSr1E_3O_GItzBNblV8HIS_gF4Sd3WYe8q5Wjbfw=s4800-w900" alt="" loading="lazy"></div>
+<div class="g-item"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZMk3sTTv6PTSYHPq1JFgH2D7roj6u_b85g2LX_nXM4K0W3RDKxuezs66g67sx4mQysdFSXyxu-iDa1qsj0D4WBCVQwmqsXgj9rOn78Eflur_yhjSiu3mFqZ-hlhg5No-nLZPFFtpORb7z2YHQ=s4800-w900" alt="" loading="lazy"></div>
+<div class="g-item"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOTuVnEkVtN1L8ZpyodWbCrMTdLCvXB7lRhQrTgFBUSf1FuP5tqIVo_k6CKLT1LAPwwRaXcccFPjvu_Zd67AeIBgrGuauiYkGDdpEGVF9K5g2zH5nGd6jtMdde8tzgB-8dHUsDu-z1U7ihSHjc=s4800-w900" alt="" loading="lazy"></div>
+<div class="g-item"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZN8fz2dP32pGFbvA94-XLGsCA-zyKKa5cAFroTDksMCdRvkavXhiiP0viMJR5cld10Yp13FIZ06et_eyeRz5HjAtxS-mA-DElSBN37kfsoZqQKg3pYuWTyJqbhlr2hNLXhyxiZnGKCPs64k=s4800-w900" alt="" loading="lazy"></div>
+<div class="g-item"><img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOpW6IfQz_iZBwNytAxcOgdHXIJekbsQtG5yQ7hGFUubPCgSuRQ7FkUkB8AcLBVKM1ztyiIlyHCUFf3SbffpKU-hMiQ47SX0qcb5OWFdB8aAYBOK9w8mt-kA1IzWqNT_ihjrIFODd4lLVRpQw=s4800-w900" alt="" loading="lazy"></div>
+
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section class="recensioni">
+  <div class="rec-inner reveal">
+    <div class="sec-label">La gente dice</div>
+    <h2>61+ clienti <em>soddisfatti</em></h2>
+    <div class="stars-big">★★★★★</div>
+    <span class="rec-num">4.9</span>
+    <span class="rec-sub">su Google Maps</span>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="contatti" id="contatti">
+  <div class="contatti-inner">
+    <div class="contatti-info reveal-l">
+      <div class="sec-label">Dove siamo</div>
+      <h2>Prenota il tuo<br><em>appuntamento</em></h2>
+      <p>Siamo a Parma PR. Chiamaci o scrivici su WhatsApp per fissare un appuntamento.</p>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div><h4>Indirizzo</h4><p>Via Raffaello Sanzio, 4/c, 43124 Parma PR</p></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div><h4>Telefono</h4><p>0521 966099</p></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div><h4>Orari</h4><p>lunedì: Chiuso · martedì: 08:30–18:30</p></div>
+      </div>
+      <div>
+        <a class="btn-tel" href="tel:0521 966099">📞 Chiama ora</a>
+        
+      </div>
+    </div>
+    <div class="reveal-r">
+      <div class="mappa">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?query=Via%20Raffaello%20Sanzio%2C%204/c%2C%2043124%20Parma%20PR&amp;layer=mapnik" allowfullscreen="" loading="lazy" title="Mappa Linea D Parrucchieri"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Linea D Parrucchieri</div>
+  <p>Via Raffaello Sanzio, 4/c, 43124 Parma PR — 0521 966099</p>
+  <p>© 2025 Linea D Parrucchieri</p>
+</footer>
+
+
+
+<script>
+// Cursor
+var cur = document.getElementById('cur'), ring = document.getElementById('ring');
+document.addEventListener('mousemove', function(e){
+  cur.style.transform = 'translate('+(e.clientX-4)+'px,'+(e.clientY-4)+'px)';
+  ring.style.transform = 'translate('+(e.clientX-15)+'px,'+(e.clientY-15)+'px)';
+});
+
+// Nav scroll
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+// Reveal
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('on'); });
+},{threshold:.12});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(function(el){ obs.observe(el); });
+</script>
+</body>
+</html>
