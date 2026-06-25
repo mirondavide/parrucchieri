@@ -32,21 +32,22 @@ tr:hover{background:#fdfaf7}
 
 <h1>✂️ Parrucchieri & Barbieri — Parma
 <button class="exp-btn" onclick="esportaInviati()">⬇ Esporta inviati</button>
+<button class="exp-btn" onclick="importaInviati()">⬆ Importa inviati</button>
 </h1>
 
 <div class="tabs">
   <button class="tab-btn active" onclick="showTab('parr',this)">
-    💇 Parrucchieri <span style="opacity:.6">(136)</span>
+    💇 Parrucchieri <span style="opacity:.6">(139)</span>
   </button>
   <button class="tab-btn" onclick="showTab('barb',this)">
-    💈 Barbieri <span style="opacity:.6">(30)</span>
+    💈 Barbieri <span style="opacity:.6">(31)</span>
   </button>
 </div>
 
 <div class="stats" id="stats-parr">
-  <div class="stat"><b>44</b><br>WhatsApp</div>
-  <div class="stat"><b>13</b><br>Email</div>
-  <div class="stat"><b>57</b><br>Totale</div>
+  <div class="stat"><b>43</b><br>WhatsApp</div>
+  <div class="stat"><b>12</b><br>Email</div>
+  <div class="stat"><b>55</b><br>Totale</div>
 </div>
 <div class="stats hidden" id="stats-barb">
   <div class="stat"><b>8</b><br>WhatsApp</div>
@@ -147,16 +148,8 @@ tr:hover{background:#fdfaf7}
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/alestetica/" target="_blank">Vedi sito</a></td>
 <td><a class="b wa" href="https://wa.me/393498417693?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Alestetica.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/alestetica/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-alestetica" onclick="tog(this)">○ Da inviare</button></td>
-</tr><tr class="tab-row parr" id="r-parr-jolie-parrucchiere">
-<td>12</td>
-<td><b>JOLIE PARRUCCHIERE</b><br><span class="muted">Parma PR</span></td>
-<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
-<td>72 ⭐</td>
-<td><a class="b demo" href="https://mirondavide.com/parrucchieri/jolie-parrucchiere/" target="_blank">Vedi sito</a></td>
-<td><a class="b wa" href="https://wa.me/393470115545?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20JOLIE%20PARRUCCHIERE.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/jolie-parrucchiere/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
-<td><button class="inv-btn" data-key="parr-jolie-parrucchiere" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-emad-parrucchiere">
-<td>13</td>
+<td>12</td>
 <td><b>Emad Parrucchiere</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
 <td>66 ⭐</td>
@@ -164,7 +157,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393270436333?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Emad%20Parrucchiere.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/emad-parrucchiere/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-emad-parrucchiere" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-glamour-estetica">
-<td>14</td>
+<td>13</td>
 <td><b>Glamour estetica</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
 <td>64 ⭐</td>
@@ -172,7 +165,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393478190917?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Glamour%20estetica.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/glamour-estetica/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-glamour-estetica" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-beauty-elite">
-<td>15</td>
+<td>14</td>
 <td><b>Beauty Elite</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
 <td>50 ⭐</td>
@@ -180,13 +173,21 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393382535577?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Beauty%20Elite.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/beauty-elite/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-beauty-elite" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-tagli-e-dettagli-parma">
-<td>16</td>
+<td>15</td>
 <td><b>Tagli e dettagli Parma</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
 <td>38 ⭐</td>
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/tagli-e-dettagli-parma/" target="_blank">Vedi sito</a></td>
 <td><a class="b wa" href="https://wa.me/393478331814?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Tagli%20e%20dettagli.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/tagli-e-dettagli-parma/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-tagli-e-dettagli-parma" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-l-angolo-della-bellezza">
+<td>16</td>
+<td><b>L&#x27;angolo Della Bellezza</b><br><span class="muted">Ponte Taro PR</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>38 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/l-angolo-della-bellezza/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393465707797?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20L%27angolo%20Della%20Bellezza.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/l-angolo-della-bellezza/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-l-angolo-della-bellezza" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-hair-melody">
 <td>17</td>
 <td><b>Hair Melody</b><br><span class="muted">Parma PR</span></td>
@@ -227,16 +228,8 @@ tr:hover{background:#fdfaf7}
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/doppia-w-hair-salon/" target="_blank">Vedi sito</a></td>
 <td><a class="b wa" href="https://wa.me/393888744092?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Doppia%20W%20HAIR.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/doppia-w-hair-salon/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-doppia-w-hair-salon" onclick="tog(this)">○ Da inviare</button></td>
-</tr><tr class="tab-row parr" id="r-parr-nelly-hair-beauty">
-<td>22</td>
-<td><b>Nelly Hair&amp;Beauty</b><br><span class="muted">Parma PR</span></td>
-<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
-<td>22 ⭐</td>
-<td><a class="b demo" href="https://mirondavide.com/parrucchieri/nelly-hair-beauty/" target="_blank">Vedi sito</a></td>
-<td><a class="b wa" href="https://wa.me/393806416010?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Nelly%20Hair%26Beauty.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/nelly-hair-beauty/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
-<td><button class="inv-btn" data-key="parr-nelly-hair-beauty" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-hidri-your-hair">
-<td>23</td>
+<td>22</td>
 <td><b>HIDRI &amp; YOUR HAIR</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
 <td>22 ⭐</td>
@@ -244,7 +237,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393274256299?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20HIDRI%20YOUR%20HAIR.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/hidri-your-hair/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-hidri-your-hair" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-salone-gioia">
-<td>24</td>
+<td>23</td>
 <td><b>Salone Gioia</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
 <td>21 ⭐</td>
@@ -252,13 +245,21 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393245682867?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Salone%20Gioia.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/salone-gioia/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-salone-gioia" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-mister-s-corner">
-<td>25</td>
+<td>24</td>
 <td><b>Mister’s Corner</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
 <td>17 ⭐</td>
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/mister-s-corner/" target="_blank">Vedi sito</a></td>
 <td><a class="b wa" href="https://wa.me/393272885700?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Mister%E2%80%99s%20Corner.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/mister-s-corner/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-mister-s-corner" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-acconciature-maschili">
+<td>25</td>
+<td><b>Acconciature Maschili</b><br><span class="muted">Parma PR</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>17 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/acconciature-maschili/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393382183361?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Maschili.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/acconciature-maschili/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-acconciature-maschili" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-umi-parrucchiere-estetica">
 <td>26</td>
 <td><b>UMi PARRUCCHIERE&amp;ESTETICA</b><br><span class="muted">Parma PR</span></td>
@@ -291,16 +292,8 @@ tr:hover{background:#fdfaf7}
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/modern-saloon/" target="_blank">Vedi sito</a></td>
 <td><a class="b wa" href="https://wa.me/393510941987?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Modern%20saloon.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/modern-saloon/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-modern-saloon" onclick="tog(this)">○ Da inviare</button></td>
-</tr><tr class="tab-row parr" id="r-parr-da-kicko">
-<td>30</td>
-<td><b>da Kicko</b><br><span class="muted">Parma PR</span></td>
-<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
-<td>4 ⭐</td>
-<td><a class="b demo" href="https://mirondavide.com/parrucchieri/da-kicko/" target="_blank">Vedi sito</a></td>
-<td><a class="b wa" href="https://wa.me/393494917452?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20da%20Kicko.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/da-kicko/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
-<td><button class="inv-btn" data-key="parr-da-kicko" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-fk-the-boss-barbing-salon">
-<td>31</td>
+<td>30</td>
 <td><b>FK THE BOSS BARBING SALON</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
 <td>1 ⭐</td>
@@ -308,7 +301,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393511556183?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20FK%20THE%20BOSS.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/fk-the-boss-barbing-salon/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-fk-the-boss-barbing-salon" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-bellezza-delle-donne">
-<td>32</td>
+<td>31</td>
 <td><b>Bellezza delle donne</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
 <td>0 ⭐</td>
@@ -316,13 +309,21 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393471262251?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Bellezza%20delle%20donne.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bellezza-delle-donne/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-bellezza-delle-donne" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-salone-eleganza">
-<td>33</td>
+<td>32</td>
 <td><b>Salone Eleganza</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#ea580c">SITO MORTO</span><br><span class="muted">il sito non si apre</span></td>
 <td>112 ⭐</td>
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/salone-eleganza/" target="_blank">Vedi sito</a></td>
 <td><a class="b wa" href="https://wa.me/393285657647?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20nuova%20del%20sito%20per%20Salone%20Eleganza.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/salone-eleganza/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-salone-eleganza" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-centro-estetico-estetica-laser-parma">
+<td>33</td>
+<td><b>Centro Estetico Estetica&amp;Laser Parma</b><br><span class="muted">Parma PR</span></td>
+<td><span class="tag" style="background:#ea580c">SITO MORTO</span><br><span class="muted">il sito non si apre</span></td>
+<td>96 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/centro-estetico-estetica-laser-parma/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393290427737?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20nuova%20del%20sito%20per%20Estetica%26Laser%20Parma.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/centro-estetico-estetica-laser-parma/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-centro-estetico-estetica-laser-parma" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-beauty-of-sense-parma">
 <td>34</td>
 <td><b>Beauty of Sense Parma</b><br><span class="muted">Parma PR</span></td>
@@ -339,16 +340,8 @@ tr:hover{background:#fdfaf7}
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/hair-man-studios/" target="_blank">Vedi sito</a></td>
 <td><a class="b wa" href="https://wa.me/393470970043?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20nuova%20del%20sito%20per%20Hair%20man%20studios.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/hair-man-studios/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-hair-man-studios" onclick="tog(this)">○ Da inviare</button></td>
-</tr><tr class="tab-row parr" id="r-parr-spa-iulia">
-<td>36</td>
-<td><b>Spa Iulia</b><br><span class="muted">Parma PR</span></td>
-<td><span class="tag" style="background:#ea580c">SITO MORTO</span><br><span class="muted">il sito non si apre</span></td>
-<td>25 ⭐</td>
-<td><a class="b demo" href="https://mirondavide.com/parrucchieri/spa-iulia/" target="_blank">Vedi sito</a></td>
-<td><a class="b wa" href="https://wa.me/393274587079?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20nuova%20del%20sito%20per%20Spa%20Iulia.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/spa-iulia/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
-<td><button class="inv-btn" data-key="parr-spa-iulia" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-seta-beauty-clinic-parma-repubblica">
-<td>37</td>
+<td>36</td>
 <td><b>Seta Beauty Clinic Parma Repubblica</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>405 ⭐</td>
@@ -356,7 +349,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393756370906?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Seta%20Beauty%20Clinic.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/seta-beauty-clinic-parma-repubblica/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-seta-beauty-clinic-parma-repubblica" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-loft-hairstyle-parma">
-<td>38</td>
+<td>37</td>
 <td><b>LOFT HairStyle - Parma</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>382 ⭐</td>
@@ -364,7 +357,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393891054499?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20LOFT%20HairStyle%20Parma.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/loft-hairstyle-parma/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-loft-hairstyle-parma" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-chioma-via-la-spezia-86">
-<td>39</td>
+<td>38</td>
 <td><b>Chioma Via La Spezia 86</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>255 ⭐</td>
@@ -372,7 +365,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b em" href="mailto:info@chioma.it?subject=Sito%20nuovo%20per%20Chioma%20Via%20La&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Chioma%20Via%20La.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/chioma-via-la-spezia-86/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
 <td><button class="inv-btn" data-key="parr-chioma-via-la-spezia-86" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-roberto-gozzi-parrucchieri">
-<td>40</td>
+<td>39</td>
 <td><b>Roberto Gozzi Parrucchieri</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>228 ⭐</td>
@@ -380,7 +373,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393801244751?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Roberto%20Gozzi%20Parrucchieri.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/roberto-gozzi-parrucchieri/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a> <a class="b em" href="mailto:info@robertogozzi.it?subject=Sito%20nuovo%20per%20Roberto%20Gozzi%20Parrucchieri&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Roberto%20Gozzi%20Parrucchieri.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/roberto-gozzi-parrucchieri/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
 <td><button class="inv-btn" data-key="parr-roberto-gozzi-parrucchieri" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-beautique-luxury-esthetic">
-<td>41</td>
+<td>40</td>
 <td><b>Beautique Luxury Esthetic</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">non adatto al telefono</span></td>
 <td>161 ⭐</td>
@@ -388,7 +381,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b wa" href="https://wa.me/393299468660?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Beautique%20Luxury%20Esthetic.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/beautique-luxury-esthetic/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
 <td><button class="inv-btn" data-key="parr-beautique-luxury-esthetic" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-parrucchieri-a-parma-cinema-roma-chioma">
-<td>42</td>
+<td>41</td>
 <td><b>Parrucchieri a Parma - Cinema Roma - Chioma</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>142 ⭐</td>
@@ -396,7 +389,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b em" href="mailto:info@chioma.it?subject=Sito%20nuovo%20per%20a%20Parma%20Cinema&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20a%20Parma%20Cinema.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/parrucchieri-a-parma-cinema-roma-chioma/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
 <td><button class="inv-btn" data-key="parr-parrucchieri-a-parma-cinema-roma-chioma" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-beauty-s-way-centro-estetico-e-benessere-parma">
-<td>43</td>
+<td>42</td>
 <td><b>Beauty&#x27;S Way Centro Estetico e Benessere Parma</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>133 ⭐</td>
@@ -404,13 +397,21 @@ tr:hover{background:#fdfaf7}
 <td><a class="b em" href="mailto:info.beautysway@gmail.com?subject=Sito%20nuovo%20per%20Beauty%27S%20Way%20Centro&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Beauty%27S%20Way%20Centro.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/beauty-s-way-centro-estetico-e-benessere-parma/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
 <td><button class="inv-btn" data-key="parr-beauty-s-way-centro-estetico-e-benessere-parma" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-elledue-parrucchieri">
-<td>44</td>
+<td>43</td>
 <td><b>Elledue Parrucchieri</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>99 ⭐</td>
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/elledue-parrucchieri/" target="_blank">Vedi sito</a></td>
 <td><a class="b em" href="mailto:info@elleduespapercapelli.com?subject=Sito%20nuovo%20per%20Elledue%20Parrucchieri&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Elledue%20Parrucchieri.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/elledue-parrucchieri/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
 <td><button class="inv-btn" data-key="parr-elledue-parrucchieri" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-parrucchiere-m-l-hair-salon-sant-ilario-d-enza">
+<td>44</td>
+<td><b>Parrucchiere M&amp;L hair salon Sant’Ilario D’enza</b><br><span class="muted">Sant&#x27;Ilario d&#x27;Enza RE</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>83 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/parrucchiere-m-l-hair-salon-sant-ilario-d-enza/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393485174561?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20M%26L%20hair%20salon.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/parrucchiere-m-l-hair-salon-sant-ilario-d-enza/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-parrucchiere-m-l-hair-salon-sant-ilario-d-enza" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-maestri-parrucchieri">
 <td>45</td>
 <td><b>Maestri Parrucchieri</b><br><span class="muted">Parma PR</span></td>
@@ -443,16 +444,8 @@ tr:hover{background:#fdfaf7}
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/antuan-di-bernava-antonio/" target="_blank">Vedi sito</a></td>
 <td><a class="b em" href="mailto:antuanparrucchieri@live.it?subject=Sito%20nuovo%20per%20Antuan%20Di%20Bernava&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Antuan%20Di%20Bernava.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/antuan-di-bernava-antonio/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
 <td><button class="inv-btn" data-key="parr-antuan-di-bernava-antonio" onclick="tog(this)">○ Da inviare</button></td>
-</tr><tr class="tab-row parr" id="r-parr-mise-tailored-beauty-atelier">
-<td>49</td>
-<td><b>Mise - Tailored Beauty Atelier</b><br><span class="muted">Parma PR</span></td>
-<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
-<td>57 ⭐</td>
-<td><a class="b demo" href="https://mirondavide.com/parrucchieri/mise-tailored-beauty-atelier/" target="_blank">Vedi sito</a></td>
-<td><a class="b wa" href="https://wa.me/393886267402?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Mise%20Tailored%20Beauty.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/mise-tailored-beauty-atelier/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
-<td><button class="inv-btn" data-key="parr-mise-tailored-beauty-atelier" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-linea-avanguardia-estetica-pellico-centro-estetico">
-<td>50</td>
+<td>49</td>
 <td><b>Linea Avanguardia Estetica - Pellico_Centro Estetico - Salone di Bellezza Parma</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>54 ⭐</td>
@@ -460,7 +453,7 @@ tr:hover{background:#fdfaf7}
 <td><a class="b em" href="mailto:pellico@lineaavanguardiaestetica.it?subject=Sito%20nuovo%20per%20Linea%20Avanguardia%20Estetica&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Linea%20Avanguardia%20Estetica.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/linea-avanguardia-estetica-pellico-centro-estetico/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
 <td><button class="inv-btn" data-key="parr-linea-avanguardia-estetica-pellico-centro-estetico" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-grease-parrucchieri-parma">
-<td>51</td>
+<td>50</td>
 <td><b>Grease Parrucchieri Parma</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>50 ⭐</td>
@@ -468,23 +461,15 @@ tr:hover{background:#fdfaf7}
 <td><a class="b em" href="mailto:greasehairstyling@gmail.com?subject=Sito%20nuovo%20per%20Grease%20Parrucchieri%20Parma&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Grease%20Parrucchieri%20Parma.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/grease-parrucchieri-parma/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
 <td><button class="inv-btn" data-key="parr-grease-parrucchieri-parma" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-the-beauty-emporium">
-<td>52</td>
+<td>51</td>
 <td><b>The Beauty Emporium</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>43 ⭐</td>
 <td><a class="b demo" href="https://mirondavide.com/parrucchieri/the-beauty-emporium/" target="_blank">Vedi sito</a></td>
 <td><a class="b wa" href="https://wa.me/393756837555?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20The%20Beauty%20Emporium.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/the-beauty-emporium/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a> <a class="b em" href="mailto:logo_black_160x@2x.png?subject=Sito%20nuovo%20per%20The%20Beauty%20Emporium&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20The%20Beauty%20Emporium.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/the-beauty-emporium/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
 <td><button class="inv-btn" data-key="parr-the-beauty-emporium" onclick="tog(this)">○ Da inviare</button></td>
-</tr><tr class="tab-row parr" id="r-parr-bizzarri-capricci">
-<td>53</td>
-<td><b>Bizzarri Capricci</b><br><span class="muted">Colorno PR</span></td>
-<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
-<td>30 ⭐</td>
-<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bizzarri-capricci/" target="_blank">Vedi sito</a></td>
-<td><a class="b em" href="mailto:bizzarricapricci@alice.it?subject=Sito%20nuovo%20per%20Bizzarri%20Capricci&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Bizzarri%20Capricci.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bizzarri-capricci/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
-<td><button class="inv-btn" data-key="parr-bizzarri-capricci" onclick="tog(this)">○ Da inviare</button></td>
 </tr><tr class="tab-row parr" id="r-parr-accademia-backstage-parma">
-<td>54</td>
+<td>52</td>
 <td><b>Accademia Backstage Parma</b><br><span class="muted">Parma PR</span></td>
 <td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
 <td>28 ⭐</td>
@@ -571,6 +556,22 @@ function showTab(id, btn) {
   document.querySelectorAll('.stats').forEach(s => s.classList.add('hidden'));
   document.getElementById('stats-'+id).classList.remove('hidden');
   localStorage.setItem('dash_parr_tab', id);
+}
+function importaInviati() {
+  var input = document.createElement('input');
+  input.type = 'file'; input.accept = '.json';
+  input.onchange = function(e) {
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      var slugs = JSON.parse(ev.target.result);
+      var data = get();
+      slugs.forEach(function(s) { data[s] = true; });
+      localStorage.setItem('inv_parr', JSON.stringify(data));
+      location.reload();
+    };
+    reader.readAsText(e.target.files[0]);
+  };
+  input.click();
 }
 function esportaInviati() {
   var s = get();
