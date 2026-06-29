@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="it"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard — Parrucchieri & Barbieri</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#faf8f4;color:#3a3530;margin:0;padding:2rem}
+h1{margin:0 0 1.2rem;color:#1a1a1a}
+.tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.tab-btn{padding:.55rem 1.4rem;border-radius:999px;border:none;font-size:.82rem;font-weight:600;cursor:pointer;background:#f0ebe3;color:#9a9590;transition:all .2s;letter-spacing:.03em}
+.tab-btn.active{background:#1a1a1a;color:#fff}
+table{border-collapse:collapse;width:100%;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px -12px rgba(0,0,0,.12)}
+th,td{padding:.7rem 1rem;text-align:left;border-bottom:1px solid #f0ebe3;font-size:.88rem;vertical-align:top}
+th{background:#1a1a1a;color:rgba(255,255,255,.7);font-size:.73rem;text-transform:uppercase;letter-spacing:.07em}
+.muted{color:#9a9590;font-size:.79rem}
+.tag{color:#fff;padding:.12rem .5rem;border-radius:999px;font-size:.7rem;font-weight:700}
+.b{display:inline-block;padding:.42rem .78rem;border-radius:999px;font-weight:600;font-size:.8rem;white-space:nowrap;margin:.1rem}
+.demo{background:#f5efe6;color:#8b6a3a}
+.wa{background:#25d366;color:#fff}
+.em{background:#e8f0fe;color:#1a73e8}
+.inv-btn{padding:.38rem .72rem;border-radius:999px;font-size:.78rem;font-weight:600;border:none;cursor:pointer;background:#f5f0e8;color:#9a9590;transition:background .15s}
+.inv-btn.sent{background:#dcfce7;color:#166534}
+tr.sent-row{opacity:.45}
+tr:hover{background:#fdfaf7}
+.tab-row.hidden{display:none}
+.exp-btn{padding:.45rem 1.1rem;border-radius:999px;border:none;font-size:.78rem;font-weight:600;cursor:pointer;background:#c9a96e;color:#fff;margin-left:.5rem}
+.stats{display:flex;gap:.6rem;margin-bottom:1rem;flex-wrap:wrap}
+.stat{background:#fff;border:1px solid #f0ebe3;border-radius:8px;padding:.5rem 1rem;font-size:.8rem;color:#9a9590}
+.stat b{color:#c9a96e;font-size:1rem}
+</style>
+</head><body>
+
+<h1>✂️ Parrucchieri & Barbieri — Parma
+<button class="exp-btn" onclick="esportaInviati()">⬇ Esporta inviati</button>
+<button class="exp-btn" onclick="importaInviati()">⬆ Importa inviati</button>
+</h1>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('parr',this)">
+    💇 Parrucchieri <span style="opacity:.6">(108)</span>
+  </button>
+  <button class="tab-btn" onclick="showTab('barb',this)">
+    💈 Barbieri <span style="opacity:.6">(17)</span>
+  </button>
+</div>
+
+<div class="stats" id="stats-parr">
+  <div class="stat"><b>22</b><br>WhatsApp</div>
+  <div class="stat"><b>10</b><br>Email</div>
+  <div class="stat"><b>32</b><br>Totale</div>
+</div>
+<div class="stats hidden" id="stats-barb">
+  <div class="stat"><b>5</b><br>WhatsApp</div>
+  <div class="stat"><b>1</b><br>Email</div>
+  <div class="stat"><b>6</b><br>Totale</div>
+</div>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>Nome</th><th>Sito attuale</th><th>Recensioni</th><th>Demo</th><th>Contatta</th><th>Stato</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tab-row parr" id="r-parr-bruno-walter-parrucchiere">
+<td>1</td>
+<td><b>Bruno &amp; Walter Parrucchiere</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>154 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/bruno-walter-parrucchiere/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393664066878?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Bruno%20Walter%20Parrucchiere.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/bruno-walter-parrucchiere/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-bruno-walter-parrucchiere" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-parrucchiere-china">
+<td>2</td>
+<td><b>parrucchiere china</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>102 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/parrucchiere-china/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393242879577?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20china.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/parrucchiere-china/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-parrucchiere-china" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-ettore-parrucchiere">
+<td>3</td>
+<td><b>Ettore parrucchiere</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>78 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/ettore-parrucchiere/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393384821328?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Ettore%20parrucchiere.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/ettore-parrucchiere/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-ettore-parrucchiere" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-parrucchiere-amira">
+<td>4</td>
+<td><b>Parrucchiere Amira</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>65 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/parrucchiere-amira/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393884987637?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Amira.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/parrucchiere-amira/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-parrucchiere-amira" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-acconciature-facelook">
+<td>5</td>
+<td><b>Acconciature Facelook</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>61 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/acconciature-facelook/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393888196391?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Facelook.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/acconciature-facelook/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-acconciature-facelook" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-parrucchiere-by-marco">
+<td>6</td>
+<td><b>Parrucchiere By Marco</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>50 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/parrucchiere-by-marco/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393319016839?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20By%20Marco.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/parrucchiere-by-marco/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-parrucchiere-by-marco" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-ad-hair-priv">
+<td>7</td>
+<td><b>AD Hair Privé</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>36 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/ad-hair-priv/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393771376618?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20AD%20Hair%20Priv%C3%A9.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/ad-hair-priv/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-ad-hair-priv" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-bollywood-parrucchieri">
+<td>8</td>
+<td><b>Bollywood Parrucchieri</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>33 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/bollywood-parrucchieri/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393289481272?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Bollywood%20Parrucchieri.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/bollywood-parrucchieri/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-bollywood-parrucchieri" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-esteticamente-beauty-nails">
+<td>9</td>
+<td><b>Esteticamente Beauty &amp; Nails</b><br><span class="muted">Gorle BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>33 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/esteticamente-beauty-nails/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393519262305?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Esteticamente%20Beauty%20Nails.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/esteticamente-beauty-nails/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-esteticamente-beauty-nails" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-boutique-dell-olio-parrucchiera">
+<td>10</td>
+<td><b>Boutique dell&#x27;Olio - Parrucchiera</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>30 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/boutique-dell-olio-parrucchiera/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393343129341?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Boutique%20dell%27Olio%20Parrucchiera.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/boutique-dell-olio-parrucchiera/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-boutique-dell-olio-parrucchiera" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-hair-beauty">
+<td>11</td>
+<td><b>Hair &amp; Beauty</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>22 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/hair-beauty/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393207521344?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20Hair%20Beauty.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/hair-beauty/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-hair-beauty" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-hair-studio-frizerie">
+<td>12</td>
+<td><b>Hair Studio Frizerie</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#ea580c">SITO MORTO</span><br><span class="muted">il sito non si apre</span></td>
+<td>106 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/hair-studio-frizerie/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393801556521?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20nuova%20del%20sito%20per%20Frizerie.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/hair-studio-frizerie/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-hair-studio-frizerie" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-kamelia-centro-estetico-bergamo">
+<td>13</td>
+<td><b>Kamelia Centro Estetico Bergamo</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#ea580c">SITO MORTO</span><br><span class="muted">il sito non si apre</span></td>
+<td>75 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/kamelia-centro-estetico-bergamo/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393454029110?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20nuova%20del%20sito%20per%20Kamelia%20Centro%20Estetico.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/kamelia-centro-estetico-bergamo/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-kamelia-centro-estetico-bergamo" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-esteticamania-centro-estetico-a-bergamo">
+<td>14</td>
+<td><b>Esteticamania - Centro Estetico a Bergamo</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>278 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/esteticamania-centro-estetico-a-bergamo/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393356897922?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Esteticamania%20Centro%20Estetico.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/esteticamania-centro-estetico-a-bergamo/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-esteticamania-centro-estetico-a-bergamo" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-salone-di-bellezza-by-jamila">
+<td>15</td>
+<td><b>Salone di bellezza by jamila</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">non adatto al telefono</span></td>
+<td>238 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/salone-di-bellezza-by-jamila/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393516542012?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20by%20jamila.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/salone-di-bellezza-by-jamila/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-salone-di-bellezza-by-jamila" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-ottaviani-autori-di-tagli-artefici-di-stili">
+<td>16</td>
+<td><b>OTTAVIANI Autori Di Tagli Artefici Di Stili</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>201 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/ottaviani-autori-di-tagli-artefici-di-stili/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393392861689?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20OTTAVIANI%20Autori%20Di.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/ottaviani-autori-di-tagli-artefici-di-stili/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-ottaviani-autori-di-tagli-artefici-di-stili" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-acconciatori-betelli-mario-e-michele">
+<td>17</td>
+<td><b>Acconciatori Betelli Mario e Michele</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>173 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/acconciatori-betelli-mario-e-michele/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393341044703?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Acconciatori%20Betelli%20Mario.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/acconciatori-betelli-mario-e-michele/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-acconciatori-betelli-mario-e-michele" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-coquette-hair-spa">
+<td>18</td>
+<td><b>Coquette Hair spa</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>169 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/coquette-hair-spa/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393755419480?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Coquette%20Hair%20spa.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/coquette-hair-spa/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-coquette-hair-spa" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-la-playa-solarium">
+<td>19</td>
+<td><b>La Playa Solarium</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS, non adatto al telefono</span></td>
+<td>164 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/la-playa-solarium/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:info@laplayasolarium.com?subject=Sito%20nuovo%20per%20La%20Playa%20Solarium&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20La%20Playa%20Solarium.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/la-playa-solarium/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-la-playa-solarium" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-crispi-up">
+<td>20</td>
+<td><b>Crispi UP</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>145 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/crispi-up/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:info@crispiup.it?subject=Sito%20nuovo%20per%20Crispi%20UP&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Crispi%20UP.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/crispi-up/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-crispi-up" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-centro-estetico-laguna-blu-epilazione-permanente-e">
+<td>21</td>
+<td><b>Centro Estetico Laguna Blu Epilazione permanente e definitiva con Laser a Diodo Trattamenti modellanti viso e corpo Bergamo</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>119 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/centro-estetico-laguna-blu-epilazione-permanente-e/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:info@esteticalagunablu.it?subject=Sito%20nuovo%20per%20Laguna%20Blu%20Epilazione&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Laguna%20Blu%20Epilazione.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/centro-estetico-laguna-blu-epilazione-permanente-e/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-centro-estetico-laguna-blu-epilazione-permanente-e" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-boutique-della-bellezza">
+<td>22</td>
+<td><b>Boutique della Bellezza</b><br><span class="muted">Dalmine BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">copyright 2018</span></td>
+<td>114 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/boutique-della-bellezza/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:info@boutiquedellabellezza.com?subject=Sito%20nuovo%20per%20Boutique%20della%20Bellezza&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Boutique%20della%20Bellezza.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/boutique-della-bellezza/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-boutique-della-bellezza" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-centro-estetico-saint-tropez">
+<td>23</td>
+<td><b>Centro Estetico Saint Tropez</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>91 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/centro-estetico-saint-tropez/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393478168416?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Saint%20Tropez.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/centro-estetico-saint-tropez/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-centro-estetico-saint-tropez" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-carminati-uomo-parrucchieri-dal-1961">
+<td>24</td>
+<td><b>Carminati Uomo - Parrucchieri dal 1961</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>87 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/carminati-uomo-parrucchieri-dal-1961/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:info@carminatiuomo.it?subject=Sito%20nuovo%20per%20Carminati%20Uomo%20Parrucchieri&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Carminati%20Uomo%20Parrucchieri.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/carminati-uomo-parrucchieri-dal-1961/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-carminati-uomo-parrucchieri-dal-1961" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-parrucchiera-africana-monica-obasohan">
+<td>25</td>
+<td><b>Parrucchiera Africana Monica Obasohan</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>71 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/parrucchiera-africana-monica-obasohan/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393274789504?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Africana%20Monica%20Obasohan.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/parrucchiera-africana-monica-obasohan/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-parrucchiera-africana-monica-obasohan" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-aesthetica-beauty-relax">
+<td>26</td>
+<td><b>AESTHETICA Beauty Relax</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>51 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/aesthetica-beauty-relax/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:info@aestheticabergamo.it?subject=Sito%20nuovo%20per%20AESTHETICA%20Beauty%20Relax&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20AESTHETICA%20Beauty%20Relax.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/aesthetica-beauty-relax/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-aesthetica-beauty-relax" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-hairlab-laura">
+<td>27</td>
+<td><b>Hairlab Laura</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>50 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/hairlab-laura/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:francesco.malfara@live.it?subject=Sito%20nuovo%20per%20Hairlab%20Laura&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Hairlab%20Laura.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/hairlab-laura/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-hairlab-laura" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-hair-planet-by-letizia">
+<td>28</td>
+<td><b>HAIR PLANET BY LETIZIA</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>50 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/hair-planet-by-letizia/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:basletta.ghezzi@gmail.com?subject=Sito%20nuovo%20per%20HAIR%20PLANET%20BY&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20HAIR%20PLANET%20BY.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/hair-planet-by-letizia/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-hair-planet-by-letizia" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-velora-hair-beauty-parrucchieri-bergamo-redona">
+<td>29</td>
+<td><b>Velora hair &amp; beauty – Parrucchieri Bergamo Redona</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>44 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/velora-hair-beauty-parrucchieri-bergamo-redona/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393516419845?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Velora%20hair%20beauty.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/velora-hair-beauty-parrucchieri-bergamo-redona/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a> <a class="b em" href="mailto:info@mabomaparrucchieri.it?subject=Sito%20nuovo%20per%20Velora%20hair%20beauty&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Velora%20hair%20beauty.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/velora-hair-beauty-parrucchieri-bergamo-redona/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-velora-hair-beauty-parrucchieri-bergamo-redona" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-meraki-centro-estetico-e-parrucchiere">
+<td>30</td>
+<td><b>MERAKI CENTRO ESTETICO E PARRUCCHIERE</b><br><span class="muted">Treviolo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>36 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/meraki-centro-estetico-e-parrucchiere/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393457147412?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20MERAKI%20CENTRO%20ESTETICO.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/meraki-centro-estetico-e-parrucchiere/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="parr-meraki-centro-estetico-e-parrucchiere" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row parr" id="r-parr-beautick">
+<td>31</td>
+<td><b>Beautick</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>23 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/beautick/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:greta@beautick.com?subject=Sito%20nuovo%20per%20Beautick&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Beautick.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/beautick/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="parr-beautick" onclick="tog(this)">○ Da inviare</button></td>
+</tr>
+    <tr class="tab-row barb" id="r-barb-l-barber">
+<td>1</td>
+<td><b>Ól Barber</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#dc2626">SENZA SITO</span><br><span class="muted">nessun sito</span></td>
+<td>37 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/l-barber/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393481381861?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20creato%20un%20sito%20da%20zero%20per%20%C3%93l%20Barber.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/l-barber/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="barb-l-barber" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row barb" id="r-barb-b-g-il-barbiere">
+<td>2</td>
+<td><b>B.G. Il Barbiere</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#ea580c">SITO MORTO</span><br><span class="muted">il sito non si apre</span></td>
+<td>35 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/b-g-il-barbiere/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393517105993?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20nuova%20del%20sito%20per%20B.G.%20Il%20Barbiere.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/b-g-il-barbiere/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="barb-b-g-il-barbiere" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row barb" id="r-barb-billy-barber-shop">
+<td>3</td>
+<td><b>Billy Barber Shop</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#ea580c">SITO MORTO</span><br><span class="muted">il sito non si apre</span></td>
+<td>24 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/billy-barber-shop/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393206387139?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20nuova%20del%20sito%20per%20Billy%20Barber%20Shop.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/billy-barber-shop/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="barb-billy-barber-shop" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row barb" id="r-barb-caruso-barber-shop-bg">
+<td>4</td>
+<td><b>Caruso Barber Shop BG</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>131 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/caruso-barber-shop-bg/" target="_blank">Vedi sito</a></td>
+<td><a class="b em" href="mailto:utente@dominio.com?subject=Sito%20nuovo%20per%20Caruso%20Barber%20Shop&amp;body=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Caruso%20Barber%20Shop.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/caruso-barber-shop-bg/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Il%20prezzo%20parte%20da%20%E2%82%AC500%20per%20una%20homepage%20completa%2C%20consegnata%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196%0A%0A---%0APer%20non%20ricevere%20altri%20messaggi%3A%20rispondete%20%27rimuovi%27.">📧 Email</a></td>
+<td><button class="inv-btn" data-key="barb-caruso-barber-shop-bg" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row barb" id="r-barb-barberia-little-italy-bergamo">
+<td>5</td>
+<td><b>Barberia Little Italy Bergamo</b><br><span class="muted">Bergamo BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">template economico</span></td>
+<td>119 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/barberia-little-italy-bergamo/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393516237501?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Little%20Italy%20Bergamo.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/barberia-little-italy-bergamo/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="barb-barberia-little-italy-bergamo" onclick="tog(this)">○ Da inviare</button></td>
+</tr><tr class="tab-row barb" id="r-barb-barber-studio-22">
+<td>6</td>
+<td><b>Barber Studio 22</b><br><span class="muted">Villa di Serio BG</span></td>
+<td><span class="tag" style="background:#d97706">SITO VECCHIO</span><br><span class="muted">no HTTPS</span></td>
+<td>76 ⭐</td>
+<td><a class="b demo" href="https://mirondavide.com/parrucchieri/bergamo/barber-studio-22/" target="_blank">Vedi sito</a></td>
+<td><a class="b wa" href="https://wa.me/393515309235?text=Buongiorno%2C%0A%0Ami%20chiamo%20Davide%2C%20realizzo%20siti%20web%20per%20attivit%C3%A0%20locali.%0AHo%20preparato%20una%20versione%20pi%C3%B9%20moderna%20del%20sito%20per%20Barber%20Studio%2022.%0AEccolo%3A%20https%3A//mirondavide.com/parrucchieri/bergamo/barber-studio-22/%0A%0ALavoro%20da%20solo%20%E2%80%94%20niente%20agenzie.%20Prezzo%20da%20%E2%82%AC500%2C%20consegna%20in%2072%20ore.%0A%0ASe%20vi%20interessa%2C%20possiamo%20sentirci%2010%20minuti%20%E2%80%94%20anche%20al%20telefono%20o%20passo%20di%20persona.%0A%0AUn%20saluto%2C%0ADavide%20%E2%80%94%20379%20210%206196" target="_blank">📲 WhatsApp</a></td>
+<td><button class="inv-btn" data-key="barb-barber-studio-22" onclick="tog(this)">○ Da inviare</button></td>
+</tr>
+  </tbody>
+</table>
+
+<p style="margin-top:1.2rem;font-size:.78rem;color:#9a9590">Invia i messaggi a mano, uno alla volta. Niente invii automatici.</p>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-row').forEach(r => r.classList.add('hidden'));
+  document.querySelectorAll('.tab-row.'+id).forEach(r => r.classList.remove('hidden'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.stats').forEach(s => s.classList.add('hidden'));
+  document.getElementById('stats-'+id).classList.remove('hidden');
+  localStorage.setItem('dash_parr_tab', id);
+}
+function importaInviati() {
+  var input = document.createElement('input');
+  input.type = 'file'; input.accept = '.json';
+  input.onchange = function(e) {
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      var slugs = JSON.parse(ev.target.result);
+      var data = get();
+      slugs.forEach(function(s) { data[s] = true; });
+      localStorage.setItem('inv_parr', JSON.stringify(data));
+      location.reload();
+    };
+    reader.readAsText(e.target.files[0]);
+  };
+  input.click();
+}
+function esportaInviati() {
+  var s = get();
+  var lista = Object.keys(s).filter(k => s[k]);
+  var blob = new Blob([JSON.stringify(lista, null, 2)], {type: 'application/json'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '_inviati.json';
+  a.click();
+  alert('Salva il file _inviati.json nella cartella parrucchieri/ del progetto.');
+}
+function tog(btn) {
+  var k=btn.dataset.key, s=get(); s[k]=!s[k];
+  localStorage.setItem('inv_parr', JSON.stringify(s));
+  applyBtn(btn, s[k]);
+}
+function get() { return JSON.parse(localStorage.getItem('inv_parr')||'{}'); }
+function applyBtn(btn, v) {
+  btn.textContent = v ? '✅ Inviato' : '○ Da inviare';
+  btn.classList.toggle('sent', v);
+  btn.closest('tr').classList.toggle('sent-row', v);
+}
+window.onload = function() {
+  var s = get();
+  document.querySelectorAll('.inv-btn').forEach(b => { if(s[b.dataset.key]) applyBtn(b,true); });
+  var saved = localStorage.getItem('dash_parr_tab');
+  if (saved) {
+    var btn = document.querySelector('.tab-btn[onclick*="' + saved + '"]');
+    if (btn) showTab(saved, btn);
+  } else {
+    document.querySelectorAll('.tab-row.barb').forEach(r => r.classList.add('hidden'));
+  }
+};
+</script>
+</body></html>

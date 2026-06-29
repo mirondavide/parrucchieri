@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alberto Parrucchieri — Parrucchiere a Bergamo BG</title>
+<meta name="description" content="Alberto Parrucchieri: Parrucchiere a Bergamo BG. Taglio, colore, piega e trattamenti esclusivi. 4.8/5 su Google. Prenota il tuo appuntamento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nero:#1a1a1a;
+  --scuro:#2a2520;
+  --oro:#c9a96e;
+  --oro2:#e8c98e;
+  --oro-soft:rgba(201,169,110,.12);
+  --crema:#faf8f4;
+  --crema2:#f2ede6;
+  --testo:#3a3530;
+  --muted:#9a9590;
+  --muted2:#b5b0ab;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--testo);background:var(--crema);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ─── CUSTOM CURSOR ─── */
+*{cursor:none}
+.cursor{width:6px;height:6px;background:var(--oro);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:transform .08s,width .25s,height .25s,background .25s}
+.cursor-ring{width:28px;height:28px;border:1px solid rgba(201,169,110,.6);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform .07s}
+.cursor.hover{width:40px;height:40px;background:transparent;border:1px solid var(--oro)}
+@media(pointer:coarse){*{cursor:auto}.cursor,.cursor-ring{display:none}}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--crema)}
+::-webkit-scrollbar-thumb{background:var(--oro);border-radius:2px}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  padding:1.6rem 4vw;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:padding .4s,background .4s,box-shadow .4s;
+}
+nav.scrolled{
+  background:rgba(26,26,26,.96);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  padding:1rem 4vw;
+  box-shadow:0 1px 0 rgba(201,169,110,.18);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:400;font-size:1.35rem;
+  color:#fff;letter-spacing:.04em;
+  transition:color .3s;
+}
+.nav-links{display:flex;gap:2.5rem;align-items:center}
+.nav-links a{
+  color:rgba(255,255,255,.55);font-size:.7rem;
+  letter-spacing:.18em;text-transform:uppercase;font-weight:500;
+  transition:color .25s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;
+  background:var(--oro);transform:scaleX(0);transition:transform .3s;transform-origin:left;
+}
+.nav-links a:hover{color:rgba(255,255,255,.9)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{
+  background:var(--oro)!important;color:var(--nero)!important;
+  padding:.52rem 1.5rem!important;border-radius:2px;font-weight:600!important;
+  letter-spacing:.12em!important;transition:background .25s,transform .2s!important;
+}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--oro2)!important;transform:translateY(-1px)!important}
+@media(max-width:768px){
+  .nav-links a:not(.nav-cta){display:none}
+  nav,nav.scrolled{padding:1.1rem 5vw}
+  .nav-logo{font-size:1.2rem}
+}
+
+/* ─── HERO ─── */
+.hero{
+  height:100vh;min-height:640px;position:relative;overflow:hidden;
+  background-color:var(--nero);
+  background-image:url('https://images.pexels.com/photos/3992872/pexels-photo-3992872.jpeg?w=900');
+  background-size:cover;background-position:center;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(105deg,rgba(15,12,10,.88) 0%,rgba(10,8,6,.55) 55%,rgba(0,0,0,.15) 100%),
+    linear-gradient(to top,rgba(15,12,10,.5) 0%,transparent 45%);
+}
+/* vignetta laterale scura */
+.hero-vignette{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 120% 100% at 100% 50%,transparent 35%,rgba(10,8,6,.55) 100%);
+}
+.hero-text{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  justify-content:center;padding:0 8vw;padding-top:90px;max-width:780px;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.9rem;
+  color:var(--oro);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;
+  margin-bottom:1.6rem;opacity:0;animation:fadeUp .8s .15s forwards;font-weight:500;
+}
+.hero-eyebrow span{opacity:.45;font-size:.6rem}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--oro);flex-shrink:0}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.4rem,7.5vw,6.6rem);
+  font-weight:300;color:#fff;line-height:.97;letter-spacing:-.01em;
+  opacity:0;animation:fadeUp .9s .3s forwards;
+}
+.hero h1 em{font-style:italic;color:var(--oro2);font-weight:300}
+.hero-sub{
+  font-size:.9rem;color:rgba(255,255,255,.55);
+  margin-top:1.6rem;line-height:1.9;max-width:420px;
+  opacity:0;animation:fadeUp .8s .5s forwards;font-weight:300;
+}
+.hero-stars{
+  display:flex;align-items:center;gap:.7rem;margin-top:1.4rem;
+  opacity:0;animation:fadeUp .8s .65s forwards;
+}
+.hero-stars .st{color:#f5c842;font-size:1.05rem;letter-spacing:.06em}
+.hero-stars .info{font-size:.75rem;color:rgba(255,255,255,.5);letter-spacing:.06em}
+.hero-stars .voto{color:rgba(255,255,255,.85);font-weight:600}
+.hero-actions{
+  display:flex;gap:1rem;margin-top:2.2rem;
+  opacity:0;animation:fadeUp .8s .8s forwards;flex-wrap:wrap;
+}
+.btn-oro{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--oro);color:var(--nero);
+  padding:.9rem 2.2rem;font-size:.73rem;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:700;border-radius:2px;
+  transition:background .25s,transform .2s,box-shadow .25s;
+}
+.btn-oro:hover{background:var(--oro2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,.35)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.6rem;
+  border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);
+  padding:.9rem 2.2rem;font-size:.73rem;letter-spacing:.16em;
+  text-transform:uppercase;font-weight:400;border-radius:2px;
+  transition:all .25s;
+}
+.btn-ghost:hover{border-color:var(--oro);color:var(--oro)}
+/* Badge rating */
+.hero-badge{
+  position:absolute;bottom:3rem;right:4vw;
+  background:rgba(255,255,255,.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(201,169,110,.2);border-radius:10px;
+  padding:1.4rem 1.8rem;text-align:center;
+  opacity:0;animation:fadeUp .8s 1s forwards;
+}
+.hero-badge .badge-stars{color:#f5c842;font-size:.85rem;letter-spacing:.1em;margin-bottom:.5rem}
+.hero-badge .badge-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:#fff;font-weight:300;line-height:1;display:block}
+.hero-badge .badge-lbl{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.35rem;display:block}
+/* Scroll hint */
+.hero-scroll{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:0;animation:fadeUp .8s 1.2s forwards;
+}
+.hero-scroll span{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(201,169,110,.6),transparent);animation:scrollDown 1.8s 1.5s infinite}
+@keyframes scrollDown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){
+  .hero-badge{display:none}
+  .hero-scroll{display:none}
+  .hero h1{font-size:clamp(2.8rem,11vw,3.8rem)}
+  .hero-text{padding:0 6vw;padding-top:80px}
+}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.reveal.on{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-30px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.reveal-l.on{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(30px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.reveal-r.on{opacity:1;transform:none}
+.delay-1{transition-delay:.1s}
+.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}
+.delay-4{transition-delay:.4s}
+
+/* ─── SECTION LABEL ─── */
+.sec-label{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--oro);margin-bottom:.8rem;font-weight:500;
+}
+.sec-label::before{content:'';width:22px;height:1px;background:var(--oro);flex-shrink:0}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:300;color:var(--nero);line-height:1.05}
+h2 em{font-style:italic;color:var(--oro)}
+
+/* ─── SERVIZI ─── */
+.servizi{background:#fff;padding:6rem 4vw;border-top:1px solid rgba(0,0,0,.05)}
+.servizi-header{text-align:center;max-width:540px;margin:0 auto 3.5rem}
+.servizi-header .sec-label{justify-content:center}
+.servizi-header p{color:var(--muted);margin-top:.9rem;font-size:.9rem;line-height:1.8}
+/* SERVIZI_GRID viene iniettato dal Python */
+.servizi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem;max-width:1100px;margin:0 auto}
+/* Stili card — il Python inietta divs con classe serv-card (o simile) */
+.servizi-grid .serv-card,
+.servizi-grid > div{
+  background:var(--crema);border:1px solid var(--crema2);border-radius:8px;
+  padding:2.2rem 1.8rem;transition:border-color .3s,transform .3s,box-shadow .3s;
+  text-align:center;position:relative;overflow:hidden;
+}
+.servizi-grid .serv-card::before,
+.servizi-grid > div::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--oro),transparent);
+  transform:scaleX(0);transition:transform .35s;
+}
+.servizi-grid .serv-card:hover,
+.servizi-grid > div:hover{
+  border-color:rgba(201,169,110,.4);transform:translateY(-5px);
+  box-shadow:0 12px 36px rgba(201,169,110,.12);
+}
+.servizi-grid .serv-card:hover::before,
+.servizi-grid > div:hover::before{transform:scaleX(1)}
+.servizi-grid .serv-icon{font-size:1.7rem;margin-bottom:1rem;display:block}
+.servizi-grid h3,.servizi-grid .serv-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--nero);margin-bottom:.4rem}
+.servizi-grid p,.servizi-grid .serv-desc{font-size:.8rem;color:var(--muted);line-height:1.7}
+
+/* ─── IL SALONE ─── */
+.salone{padding:7rem 4vw;background:var(--crema)}
+.salone-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.salone-img-wrap{position:relative}
+.salone-img{
+  height:560px;border-radius:6px;overflow:hidden;
+  background-image:url('https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?w=900');
+  background-size:cover;background-position:center;
+}
+.salone-img-wrap::before{
+  content:'';position:absolute;
+  bottom:-1.8rem;right:-1.8rem;
+  width:58%;height:58%;
+  border:2px solid rgba(201,169,110,.45);border-radius:6px;z-index:-1;
+}
+.salone-img-wrap::after{
+  content:'';position:absolute;
+  top:-1.2rem;left:-1.2rem;
+  width:35%;height:35%;
+  border:1px solid rgba(201,169,110,.2);border-radius:4px;z-index:-1;
+}
+.salone-content .sec-label{margin-bottom:1rem}
+.salone-content h2{margin-bottom:1.2rem}
+.salone-content p{color:var(--muted);font-size:.92rem;line-height:1.9;margin-bottom:1.6rem}
+.salone-divider{width:40px;height:1px;background:var(--oro);margin:1.6rem 0}
+@media(max-width:900px){.salone-inner{grid-template-columns:1fr;gap:3rem}.salone-img{height:300px}.salone-img-wrap::before,.salone-img-wrap::after{display:none}}
+
+/* ─── NUMERI ─── */
+.numeri{background:var(--nero);padding:5.5rem 4vw;position:relative;overflow:hidden}
+.numeri::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--oro),transparent);
+}
+.numeri::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,169,110,.3),transparent);
+}
+.numeri-inner{max-width:1000px;margin:0 auto}
+.numeri-header{text-align:center;margin-bottom:3.5rem}
+.numeri-header .sec-label{color:var(--oro);justify-content:center}
+.numeri-header h2{color:#fff}
+.numeri-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.num-card{text-align:center;padding:2rem 1rem;border:1px solid rgba(255,255,255,.06);border-radius:8px;transition:border-color .3s,background .3s}
+.num-card:hover{border-color:rgba(201,169,110,.25);background:rgba(201,169,110,.04)}
+.num-icon{font-size:1.6rem;margin-bottom:.8rem;display:block}
+.num-val{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--oro);display:block;line-height:1;margin-bottom:.4rem}
+.num-lbl{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+@media(max-width:600px){.numeri-grid{grid-template-columns:1fr 1fr;gap:1rem}.num-val{font-size:2.4rem}}
+
+/* ─── RECENSIONI CARDS ─── */
+.recensioni{padding:6rem 4vw;background:var(--crema2)}
+.rec-header{text-align:center;max-width:500px;margin:0 auto 3.5rem}
+.rec-header .sec-label{justify-content:center}
+.rec-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;max-width:1100px;margin:0 auto}
+.rec-card{
+  background:#fff;border:1px solid rgba(201,169,110,.12);border-radius:10px;
+  padding:2.2rem;position:relative;transition:box-shadow .3s,transform .3s;
+}
+.rec-card:hover{box-shadow:0 14px 40px rgba(0,0,0,.08);transform:translateY(-4px)}
+.rec-card::before{
+  content:'\201C';font-family:'Cormorant Garamond',serif;font-size:5rem;
+  color:rgba(201,169,110,.15);position:absolute;top:.5rem;right:1.5rem;line-height:1;
+}
+.rec-stars{color:#f5c842;font-size:.9rem;letter-spacing:.06em;margin-bottom:1rem}
+.rec-text{font-size:.88rem;color:var(--testo);line-height:1.8;font-style:italic;margin-bottom:1.4rem}
+.rec-author{display:flex;align-items:center;gap:.9rem;padding-top:1.2rem;border-top:1px solid var(--crema2)}
+.rec-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--oro),var(--scuro));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:.95rem;color:#fff;font-weight:600;
+  flex-shrink:0;
+}
+.rec-name{font-weight:600;font-size:.82rem;color:var(--nero);display:block}
+.rec-when{font-size:.72rem;color:var(--muted);margin-top:.1rem;display:block}
+.rec-google{margin-left:auto;opacity:.4}
+.rec-google svg{width:14px;height:14px}
+@media(max-width:900px){.rec-cards{grid-template-columns:1fr}}
+@media(max-width:600px){.rec-cards{grid-template-columns:1fr}}
+
+/* ─── CTA INTERMEDIA ─── */
+.cta-mid{
+  position:relative;padding:8rem 4vw;
+  background:var(--scuro);
+  background-image:url('https://images.pexels.com/photos/3992872/pexels-photo-3992872.jpeg?w=900');
+  background-size:cover;background-position:center;
+  text-align:center;overflow:hidden;
+}
+.cta-mid-overlay{position:absolute;inset:0;background:rgba(18,14,10,.82)}
+.cta-mid-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.cta-mid-inner .sec-label{color:var(--oro);justify-content:center}
+.cta-mid-inner h2{color:#fff;margin-bottom:1rem;font-size:clamp(2.4rem,5vw,4rem)}
+.cta-mid-inner p{color:rgba(255,255,255,.5);font-size:.92rem;line-height:1.85;margin-bottom:2.4rem}
+.cta-mid-inner .btn-oro{font-size:.78rem;padding:1rem 2.8rem;letter-spacing:.2em}
+.cta-line{width:40px;height:1px;background:var(--oro);margin:.6rem auto 1.6rem}
+
+/* ─── GALLERY ─── */
+.gallery{padding:6rem 4vw;background:#fff}
+.gallery-header{text-align:center;max-width:500px;margin:0 auto 3rem}
+.gallery-header .sec-label{justify-content:center}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:280px 280px;
+  gap:10px;max-width:1100px;margin:0 auto;
+}
+.g-item{
+  overflow:hidden;border-radius:6px;background:var(--crema2);
+  position:relative;
+}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.g-item:hover img{transform:scale(1.08)}
+.g-caption{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(18,14,10,.75) 0%,transparent 55%);
+  display:flex;align-items:flex-end;padding:1.4rem;
+  opacity:0;transition:opacity .35s;
+}
+.g-item:hover .g-caption{opacity:1}
+.g-caption span{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);font-weight:500}
+.g-big{grid-column:span 2}
+@media(max-width:700px){.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.g-big{grid-column:span 2}.gallery-grid{grid-template-rows:180px 180px 180px}}
+
+/* ─── CONTATTI ─── */
+.contatti{padding:7rem 4vw;background:var(--crema)}
+.contatti-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contatti-info .sec-label{margin-bottom:1rem}
+.contatti-info h2{margin-bottom:1rem}
+.contatti-info > p{color:var(--muted);font-size:.9rem;line-height:1.85;margin-bottom:2.2rem}
+.info-block{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem}
+.info-item{display:flex;gap:1.1rem;align-items:flex-start;padding:1.1rem 1.3rem;background:#fff;border:1px solid var(--crema2);border-radius:6px;transition:border-color .25s}
+.info-item:hover{border-color:rgba(201,169,110,.3)}
+.info-icon{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  background:var(--oro-soft);border:1px solid rgba(201,169,110,.25);
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;
+}
+.info-content h4{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--oro);margin-bottom:.25rem;font-weight:600}
+.info-content p{font-size:.85rem;color:var(--testo);line-height:1.65}
+.orari-table{font-size:.83rem;color:var(--testo);line-height:1.9}
+.contatti-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.5rem}
+.btn-tel{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--nero);color:#fff;
+  padding:.85rem 1.8rem;border-radius:2px;font-weight:600;font-size:.78rem;letter-spacing:.08em;
+  transition:background .2s,transform .2s;
+}
+.btn-tel:hover{background:var(--scuro);transform:translateY(-1px)}
+.mappa-box{border-radius:10px;overflow:hidden;height:420px;border:1px solid var(--crema2);box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.mappa-box iframe{width:100%;height:100%;border:none}
+@media(max-width:900px){.contatti-inner{grid-template-columns:1fr;gap:3rem}.mappa-box{height:260px}}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--nero);padding:3rem 4vw 2rem;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+.foot-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;padding-bottom:2rem;margin-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;color:rgba(255,255,255,.4);letter-spacing:.04em}
+.foot-links{display:flex;gap:2rem}
+.foot-links a{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);transition:color .2s}
+.foot-links a:hover{color:var(--oro)}
+.foot-copy{text-align:center;font-size:.7rem;color:rgba(255,255,255,.18);letter-spacing:.06em}
+@media(max-width:600px){.foot-inner{flex-direction:column;align-items:flex-start}.foot-links{gap:1.2rem}}
+
+/* ─── FLOAT WA ─── */
+.wa-float{position:fixed;bottom:1.6rem;right:1.6rem;z-index:400;width:54px;height:54px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 22px rgba(37,211,102,.4);transition:transform .25s,box-shadow .25s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(37,211,102,.55)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+@media(max-width:768px){.wa-float{bottom:5.5rem}}
+
+/* ─── MOBILE STICKY BAR ─── */
+.mobile-bar{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:var(--nero);padding:.9rem 1.2rem;
+  box-shadow:0 -1px 0 rgba(255,255,255,.06),0 -8px 24px rgba(0,0,0,.3);
+  gap:.7rem;align-items:center;
+}
+.mobile-bar a{
+  flex:1;text-align:center;padding:.75rem .5rem;
+  border-radius:3px;font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:600;transition:all .2s;
+}
+.mobile-bar .mb-tel{background:var(--nero);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.mobile-bar .mb-wa{background:#25d366;color:#fff}
+.mobile-bar .mb-prenota{background:var(--oro);color:var(--nero)}
+@media(max-width:768px){.mobile-bar{display:flex}}
+
+/* ─── ORNAMENT LINE ─── */
+.ornament{display:flex;align-items:center;gap:1.2rem;max-width:200px;margin:1.6rem 0}
+.ornament::before,.ornament::after{content:'';flex:1;height:1px;background:rgba(201,169,110,.35)}
+.ornament-diamond{width:5px;height:5px;background:var(--oro);transform:rotate(45deg);flex-shrink:0}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav id="nav">
+  <div class="nav-logo">Alberto Parrucchieri</div>
+  <div class="nav-links">
+    <a href="#servizi">Servizi</a>
+    <a href="#salone">Il salone</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#recensioni">Recensioni</a>
+    <a href="#contatti" class="nav-cta">Prenota</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-text">
+    <div class="hero-eyebrow">
+      Alberto Parrucchieri <span>·</span> Parrucchiere <span>·</span> Bergamo BG
+    </div>
+    <h1>Il tuo stile,<br>la nostra <em>arte</em></h1>
+    <p class="hero-sub">
+      Benvenuta nel tuo nuovo salone preferito.<br>
+      Dove ogni visita è un'esperienza unica.
+    </p>
+    <div class="hero-stars">
+      <span class="st">★★★★★</span>
+      <span class="info"><span class="voto">4.8</span> · 68 clienti soddisfatti</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn-oro" href="tel:035 233859">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Prenota il tuo appuntamento
+      </a>
+      <a class="btn-ghost" href="#servizi">
+        Scopri i servizi
+      </a>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <div class="badge-stars">★★★★★</div>
+    <span class="badge-num">4.8</span>
+    <span class="badge-lbl">68 recensioni Google</span>
+  </div>
+  <div class="hero-scroll">
+    <span>Scopri</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVIZI ═══════════════ -->
+<section class="servizi" id="servizi">
+  <div class="servizi-header reveal">
+    <div class="sec-label">Cosa offriamo</div>
+    <h2>I nostri <em>servizi</em></h2>
+    <p>Dalla piega al colore, dal taglio ai trattamenti esclusivi: ogni servizio è pensato per valorizzarti al meglio.</p>
+  </div>
+  <div class="servizi-grid">
+    <div class="serv-card reveal">
+  <span class="serv-icon">✂️</span>
+  <h3>Taglio</h3>
+  <p>Taglio personalizzato in base alla forma del viso e alle tue esigenze. Dalla frangia alle scalature.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">🎨</span>
+  <h3>Colore</h3>
+  <p>Tinte, meches, balayage e shatush con prodotti professionali che rispettano il capello.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">💨</span>
+  <h3>Piega</h3>
+  <p>Piega liscia, mossa o ricci definiti. Finish impeccabile con prodotti styling di qualità.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">✨</span>
+  <h3>Trattamenti</h3>
+  <p>Trattamenti rigeneranti, keratina, botox capillare e maschere nutrienti per capelli sani.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">👰</span>
+  <h3>Acconciature</h3>
+  <p>Acconciature per cerimonie, matrimoni e occasioni speciali. Prenota in anticipo.</p>
+</div>
+<div class="serv-card reveal">
+  <span class="serv-icon">🌿</span>
+  <h3>Consulenza</h3>
+  <p>Consulenza personalizzata per trovare il colore e il taglio più adatti a te.</p>
+</div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ IL SALONE ═══════════════ -->
+<section class="salone" id="salone">
+  <div class="salone-inner">
+    <div class="salone-img-wrap reveal-l">
+      <div class="salone-img"></div>
+    </div>
+    <div class="salone-content reveal-r">
+      <div class="sec-label">Chi siamo</div>
+      <h2>Un'esperienza<br><em>oltre</em> il salone</h2>
+      <div class="ornament"><div class="ornament-diamond"></div></div>
+      <p>Alberto Parrucchieri è un salone a Bergamo BG con 68 recensioni su Google. Taglio, colore, piega e trattamenti. Su appuntamento.</p>
+      <p>Il nostro team di professionisti è sempre aggiornato sulle ultime tendenze internazionali, per offrirti un servizio di altissima qualità in ogni momento.</p>
+      <a class="btn-oro" href="tel:035 233859">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Contattaci ora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ NUMERI ═══════════════ -->
+<section class="numeri">
+  <div class="numeri-inner">
+    <div class="numeri-header reveal">
+      <div class="sec-label" style="color:var(--oro);justify-content:center">I nostri numeri</div>
+      <h2 style="color:#fff">La qualità che <em>parla</em></h2>
+    </div>
+    <div class="numeri-grid">
+      <div class="num-card reveal delay-1">
+        <span class="num-icon">⭐</span>
+        <span class="num-val">4.8</span>
+        <span class="num-lbl">Voto su Google</span>
+      </div>
+      <div class="num-card reveal delay-2">
+        <span class="num-icon">💬</span>
+        <span class="num-val">68</span>
+        <span class="num-lbl">Clienti soddisfatte</span>
+      </div>
+      <div class="num-card reveal delay-3">
+        <span class="num-icon">✂️</span>
+        <span class="num-val">10+</span>
+        <span class="num-lbl">Anni di esperienza</span>
+      </div>
+      <div class="num-card reveal delay-4">
+        <span class="num-icon">🌿</span>
+        <span class="num-val">100%</span>
+        <span class="num-lbl">Prodotti professionali</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ RECENSIONI ═══════════════ -->
+<section class="recensioni" id="recensioni">
+  <div class="rec-header reveal">
+    <div class="sec-label">Cosa dicono di noi</div>
+    <h2>Le nostre <em>clienti</em></h2>
+  </div>
+  <div class="rec-cards">
+    <div class="rec-card reveal delay-1">
+      <div class="rec-stars">★★★★★</div>
+      <p class="rec-text">
+        "Ho fatto il colore qui per la prima volta e sono rimasta a bocca aperta. La colorista ha capito esattamente quello che volevo — una bionda fredda naturale — senza che io riuscissi nemmeno a spiegarlo bene. Risultato perfetto, durata eccellente."
+      </p>
+      <div class="rec-author">
+        <div class="rec-avatar">CL</div>
+        <div>
+          <span class="rec-name">Claudia L.</span>
+          <span class="rec-when">Cliente abituale · Colore</span>
+        </div>
+        <div class="rec-google">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.33 0 9.25-3.65 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="rec-card reveal delay-2">
+      <div class="rec-stars">★★★★★</div>
+      <p class="rec-text">
+        "Mi sono affidata a loro per la piega per il mio matrimonio e non potevo fare scelta migliore. Hanno capito la mia visione al volo, erano pazienti e gentilissime. I capelli sono rimasti perfetti per tutta la serata. Tornerò sicuramente!"
+      </p>
+      <div class="rec-author">
+        <div class="rec-avatar">SM</div>
+        <div>
+          <span class="rec-name">Sara M.</span>
+          <span class="rec-when">Cerimonia · Piega sposa</span>
+        </div>
+        <div class="rec-google">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.33 0 9.25-3.65 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="rec-card reveal delay-3">
+      <div class="rec-stars">★★★★★</div>
+      <p class="rec-text">
+        "Finalmente un taglio che valorizza davvero la mia forma del viso! La parrucchiera ha studiato attentamente prima di cominciare e mi ha spiegato ogni scelta. Sono uscita con un taglio scalato che non avrei mai pensato di fare — e amo il risultato."
+      </p>
+      <div class="rec-author">
+        <div class="rec-avatar">VR</div>
+        <div>
+          <span class="rec-name">Valentina R.</span>
+          <span class="rec-when">Cliente · Taglio e styling</span>
+        </div>
+        <div class="rec-google">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.33 0 9.25-3.65 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA INTERMEDIA ═══════════════ -->
+<section class="cta-mid">
+  <div class="cta-mid-overlay"></div>
+  <div class="cta-mid-inner reveal">
+    <div class="sec-label" style="justify-content:center">Pronta per il cambiamento?</div>
+    <div class="cta-line"></div>
+    <h2>Pronta per un<br><em>nuovo look?</em></h2>
+    <p>
+      Che si tratti di un colore audace, di un taglio che ti rinnova<br>
+      o di un trattamento rigenerante — siamo qui per te.
+    </p>
+    <a class="btn-oro" href="tel:035 233859">Prenota il tuo appuntamento</a>
+  </div>
+</section>
+
+<!-- ═══════════════ GALLERY ═══════════════ -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header reveal">
+    <div class="sec-label">Il nostro lavoro</div>
+    <h2>Galleria <em>creazioni</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item g-big"><img src="https://images.pexels.com/photos/3992872/pexels-photo-3992872.jpeg?w=900" alt="" loading="lazy"></div>
+<div class="g-item"><img src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?w=900" alt="" loading="lazy"></div>
+<div class="g-item"><img src="https://images.pexels.com/photos/1570807/pexels-photo-1570807.jpeg?w=900" alt="" loading="lazy"></div>
+<div class="g-item"><img src="https://images.pexels.com/photos/3764013/pexels-photo-3764013.jpeg?w=900" alt="" loading="lazy"></div>
+<div class="g-item"><img src="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?w=900" alt="" loading="lazy"></div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ CONTATTI ═══════════════ -->
+<section class="contatti" id="contatti">
+  <div class="contatti-inner">
+    <div class="contatti-info reveal-l">
+      <div class="sec-label">Dove siamo</div>
+      <h2>Prenota il tuo<br><em>appuntamento</em></h2>
+      <p>Siamo a Bergamo BG. Chiamaci o scrivici su WhatsApp per trovare l'orario più comodo per te.</p>
+      <div class="info-block">
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-content">
+            <h4>Indirizzo</h4>
+            <p>Piazzale Lodovico Goisis, 1, 24124 Bergamo BG</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div class="info-content">
+            <h4>Telefono</h4>
+            <p>035 233859</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div class="info-content">
+            <h4>Orari di apertura</h4>
+            <div class="orari-table">lunedì: Chiuso · martedì: 09:00–18:00</div>
+          </div>
+        </div>
+      </div>
+      <div class="contatti-actions">
+        <a class="btn-tel" href="tel:035 233859">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Chiama ora
+        </a>
+        
+      </div>
+    </div>
+    <div class="reveal-r">
+      <div class="mappa-box">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?query=Piazzale%20Lodovico%20Goisis%2C%201%2C%2024124%20Bergamo%20BG&amp;layer=mapnik" allowfullscreen="" loading="lazy" title="Mappa Alberto Parrucchieri"></iframe>
+      </div>
+      <div style="margin-top:.9rem;text-align:center">
+        <a href="https://maps.google.com/?q=Piazzale%20Lodovico%20Goisis%2C%201%2C%2024124%20Bergamo%20BG" target="_blank" rel="noopener"
+           style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s"
+           onmouseover="this.style.color='var(--oro)'" onmouseout="this.style.color='var(--muted)'">
+          Apri in Google Maps →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-logo">Alberto Parrucchieri</div>
+    <div class="foot-links">
+      <a href="#servizi">Servizi</a>
+      <a href="#salone">Il salone</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+  </div>
+  <p class="foot-copy">Piazzale Lodovico Goisis, 1, 24124 Bergamo BG — 035 233859 &nbsp;·&nbsp; © 2025 Alberto Parrucchieri · Tutti i diritti riservati</p>
+</footer>
+
+<!-- FLOAT WA -->
+
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-bar">
+  <a class="mb-tel" href="tel:035 233859">📞 Chiama</a>
+  <a class="mb-prenota" href="#contatti">Prenota ora</a>
+</div>
+
+<script>
+(function(){
+  // ── Custom cursor ──
+  var cur = document.getElementById('cur');
+  var ring = document.getElementById('ring');
+  if(cur && ring && window.matchMedia('(pointer:fine)').matches){
+    document.addEventListener('mousemove', function(e){
+      cur.style.transform  = 'translate('+(e.clientX-3)+'px,'+(e.clientY-3)+'px)';
+      ring.style.transform = 'translate('+(e.clientX-14)+'px,'+(e.clientY-14)+'px)';
+    });
+    document.querySelectorAll('a,button,.num-card,.rec-card,.serv-card,.g-item').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ cur.classList.add('hover'); });
+      el.addEventListener('mouseleave', function(){ cur.classList.remove('hover'); });
+    });
+  }
+
+  // ── Nav scroll ──
+  var nav = document.getElementById('nav');
+  function updateNav(){ nav.classList.toggle('scrolled', window.scrollY > 60); }
+  window.addEventListener('scroll', updateNav, {passive:true});
+  updateNav();
+
+  // ── Reveal on scroll ──
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); }
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(function(el){ obs.observe(el); });
+
+  // ── Smooth active links ──
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', function(){
+    var pos = window.scrollY + 120;
+    sections.forEach(function(s){
+      if(pos >= s.offsetTop && pos < s.offsetTop + s.offsetHeight){
+        navLinks.forEach(function(a){
+          a.style.color = a.getAttribute('href') === '#'+s.id
+            ? 'rgba(255,255,255,.95)' : '';
+        });
+      }
+    });
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
